@@ -5,8 +5,7 @@
      Keep this file under ~150 lines — Claude loads it every session.
      See the guide at docs/workflow-guide.html for full documentation. -->
 
-**Project:** [YOUR PROJECT NAME]
-**Institution:** [YOUR INSTITUTION]
+**Project:** Low-Rank Recovery and Inference for Sparsely Observed Treatment Effects
 **Branch:** main
 
 ---
@@ -24,20 +23,20 @@
 ## Folder Structure
 
 ```
-[YOUR-PROJECT]/
-├── CLAUDE.MD                    # This file
+low-rank-recovery/
+├── CLAUDE.md                    # This file
 ├── .claude/                     # Rules, skills, agents, hooks
 ├── Bibliography_base.bib        # Centralized bibliography
-├── Figures/                     # Figures and images
+├── Figures/                     # Publication-ready figures (PDF/SVG)
 ├── Preambles/header.tex         # LaTeX headers
-├── Slides/                      # Beamer .tex files
+├── Slides/                      # Beamer .tex talk decks
 ├── Quarto/                      # RevealJS .qmd files + theme
 ├── docs/                        # GitHub Pages (auto-generated)
-├── scripts/                     # Utility scripts + R code
+├── scripts/                     # Python simulations + analysis
 ├── quality_reports/             # Plans, session logs, merge reports
 ├── explorations/                # Research sandbox (see rules)
 ├── templates/                   # Session log, quality report templates
-└── master_supporting_docs/      # Papers and existing slides
+└── master_supporting_docs/      # Papers and reference slides
 ```
 
 ---
@@ -51,8 +50,12 @@ BIBINPUTS=..:$BIBINPUTS bibtex file
 TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
 TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
 
+# Python simulations
+python scripts/simulations.py
+python -m pytest scripts/tests/
+
 # Deploy Quarto to GitHub Pages
-./scripts/sync_to_docs.sh LectureN
+./scripts/sync_to_docs.sh SlideDeckN
 
 # Quality score
 python scripts/quality_score.py Quarto/file.qmd
@@ -80,7 +83,7 @@ python scripts/quality_score.py Quarto/file.qmd
 | `/proofread [file]` | Grammar/typo/overflow review |
 | `/visual-audit [file]` | Slide layout audit |
 | `/pedagogy-review [file]` | Narrative, notation, pacing review |
-| `/review-r [file]` | R code quality review |
+| `/review-r [file]` | R/Python code quality review |
 | `/qa-quarto [LectureN]` | Adversarial Quarto vs Beamer QA |
 | `/slide-excellence [file]` | Combined multi-agent review |
 | `/translate-to-quarto [file]` | Beamer → Quarto translation |
@@ -92,7 +95,7 @@ python scripts/quality_score.py Quarto/file.qmd
 | `/research-ideation [topic]` | Research questions + strategies |
 | `/interview-me [topic]` | Interactive research interview |
 | `/review-paper [file]` | Manuscript review |
-| `/data-analysis [dataset]` | End-to-end R analysis |
+| `/data-analysis [dataset]` | End-to-end Python/R analysis |
 | `/learn [skill-name]` | Extract discovery into persistent skill |
 | `/context-status` | Show session health + context usage |
 | `/deep-audit` | Repository-wide consistency audit |
@@ -130,7 +133,9 @@ python scripts/quality_score.py Quarto/file.qmd
 
 ## Current Project State
 
-| Lecture | Beamer | Quarto | Key Content |
-|---------|--------|--------|-------------|
-| 1: [Topic] | `Lecture01_Topic.tex` | `Lecture1_Topic.qmd` | [Brief description] |
-| 2: [Topic] | `Lecture02_Topic.tex` | -- | [Brief description] |
+| Talk Deck | Beamer | Status | Key Content |
+|-----------|--------|--------|-------------|
+| 1: Problem Setup & Motivation | -- | Not started | Low-rank model, sparse observations, TE estimation |
+| 2: Methodology | -- | Not started | Recovery algorithm, inference procedure |
+| 3: Theory | -- | Not started | Main theorems, asymptotic results |
+| 4: Simulations & Application | -- | Not started | Finite-sample evidence, empirical illustration |

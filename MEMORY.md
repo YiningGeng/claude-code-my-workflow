@@ -70,3 +70,10 @@ When a mistake is corrected, append a `[LEARN:category]` entry below.
 [LEARN:meta] Dogfooding principles must be enforced: plan-first, spec-then-plan, quality gates, session logs → we follow our own guide.
 
 [LEARN:meta] Template development work (building infrastructure, docs) doesn't create session logs in quality_reports/ → those are for user work (slides, analysis), not meta-work. Keeps template clean for users who fork.
+
+---
+
+## Project Memory
+
+- [User Profile](memory/user_profile.md) — researcher, top-5 econ target, Python stack, rigorous/publication-ready standard
+- [Project Context](memory/project_context.md) — Low-Rank Recovery and Inference project, clean start 2026-03-30
